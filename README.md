@@ -25,6 +25,8 @@ This needs to exist before using packman
 Packman can download `packs.yaml` from a web server, making it simple
 to maintain a list in case you do not have another tool to manage `packs.yaml`
 
+`(Optional) DISABLE_PACKMAN - Prevent Packman from running`
+
 ## Usage
 
 All the usage is around the `packs.yaml` file.

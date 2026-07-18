@@ -60,6 +60,10 @@ func isFileLocked(lockFilePath string) bool {
 }
 
 func main() {
+    if isDisabled, _ := strconv.ParseBool(os.Getenv("DISABLE_PACKMAN")); isDisabled {
+        log.Printf("Packman is disabled by DISABLE_PACKMAN env variable")
+        os.Exit(0)
+    }
 	packmanDir := os.Getenv("PACKMAN_DIR")
 	if packmanDir == "" {
 		fmt.Fprintln(os.Stderr, "Error: PACKMAN_DIR environment variable not set")
