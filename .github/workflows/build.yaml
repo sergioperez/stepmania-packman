@@ -6,13 +6,13 @@ on:
       - '**.go'
       - 'go.mod'
       - 'go.sum'
-      - '.github/workflows/build.yml'
+      - '.github/workflows/build.yaml'
   pull_request:
     paths:
       - '**.go'
       - 'go.mod'
       - 'go.sum'
-      - '.github/workflows/build.yml'
+      - '.github/workflows/build.yaml'
 
 jobs:
   build:
