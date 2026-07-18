@@ -56,7 +56,13 @@ jobs:
           GOARM: ${{ matrix.goarm }}
         run: CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o packman-${{ matrix.suffix }} ./...
 
+      - name: Get build metadata
+        id: meta
+        run: |
+          echo "date=$(git show -s --format=%cd --date=format:'%Y%m%d' HEAD)" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
       - uses: actions/upload-artifact@v7
         with:
-          name: packman-${{ matrix.suffix }}
+          name: packman-${{ matrix.suffix }}-${{ steps.meta.outputs.date }}-${{ steps.meta.outputs.sha }}
           path: packman-${{ matrix.suffix }}
