@@ -48,21 +48,27 @@ jobs:
 
       - run: go vet ./...
 
+      - name: Get build metadata
+        id: name 
+        run: |
+          echo "name=packman-${{ matrix.suffix }}-$(git show -s --format=%cd --date=format:'%Y%m%d' HEAD)-$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Set file name
+        id: caca
+
       - name: Build
         env:
           CGO_ENABLED: 0
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
           GOARM: ${{ matrix.goarm }}
-        run: CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o packman-${{ matrix.suffix }} ./...
-
-      - name: Get build metadata
-        id: meta
-        run: |
-          echo "date=$(git show -s --format=%cd --date=format:'%Y%m%d' HEAD)" >> "$GITHUB_OUTPUT"
-          echo "sha=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+          GOAMD64: ${{ matrix.goamd64 }}
+          GO386: ${{ matrix.go386 }}
+          GOARM64: ${{ matrix.goarm64 }}
+          GORISCV64: ${{ matrix.goriscv64 }}
+        run: CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o ${{ steps.name.outputs.name }} ./...
 
       - uses: actions/upload-artifact@v7
         with:
-          name: packman-${{ matrix.suffix }}-${{ steps.meta.outputs.date }}-${{ steps.meta.outputs.sha }}
-          path: packman-${{ matrix.suffix }}
+          name: ${{ steps.name.outputs.name }}
+          path: ${{ steps.name.outputs.name }}
