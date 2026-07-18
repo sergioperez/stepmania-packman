@@ -1,0 +1,4 @@
+export PACKMAN_DIR=/home/stepmania/packman-data
+export SM_PACK_SEARCH_URL="https://stepmaniaoffline.lan"
+export PACK_FOLDER=/home/stepmania/Songs
+

@@ -1,0 +1,11 @@
+[Unit]
+Description=Runs packman
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/packman
+WorkingDirectory=/etc/packman
+User=packman
+Group=packman

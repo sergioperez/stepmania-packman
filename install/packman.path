@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch packs.yaml for changes
+
+[Path]
+PathChanged=/path/to/packs.yaml
+Unit=packman.service
+
+[Install]
+WantedBy=multi-user.target
