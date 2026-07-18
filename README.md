@@ -90,6 +90,13 @@ If a download fails => delete the correspondant files from the Songs directory, 
 go build -o packman app.go
 ```
 
+## Greetings
+
+Thanks to [@concubidated](https://github.com/concubidated) for the great
+project [`simfile-pack-search`](https://github.com/concubidated/simfile-pack-search),
+and to all the contributors of the various StepMania-based games and forks,
+including StepMania, ITGMania, OutFox, DeadSync, and others.
+
 ## Disclaimer
 
 This tool is provided "as is", without warranty of any kind. The author(s)
