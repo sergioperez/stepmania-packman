@@ -1,4 +1,5 @@
-# Stepmania Packman
+
+#  <img width="32" height="32" alt="packman-logo" src="https://github.com/user-attachments/assets/25eddbca-208e-4bbf-a6f6-e0e16214fd75" /> Stepmania Packman
 
 Stepmania Packman is a tool to manage the packs of your StepMania setup declaratively.
 
@@ -34,9 +35,13 @@ Example:
 
 ```
 packs:
-- id: 399
-- id: 3666
+- id: 399 # Pack name 1
+- id: 3666 # Pack name 2
 ```
+
+You can obtain a pack ID from a `simfile-pack-search` instance.
+
+<img width="928" height="594" alt="image" src="https://github.com/user-attachments/assets/942b6803-6a76-4be4-85dc-6e2aa17cd72c" />
 
 - Removing a pack: Remove the `- id: packID` entry from `packs.yaml`
 
