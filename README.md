@@ -21,7 +21,7 @@ Simfile-pack-search instance where packman pulls content from:
 Folder where the StepMania packs will be stored
 This needs to exist before using packman
 
-`(Optional) DOWNLOAD_PACK_YAML=https://localhost:8000/packs.yaml`
+`(Optional) PACK_YAML_URL=https://localhost:8000/packs.yaml`
 Packman can download `packs.yaml` from a web server, making it simple
 to maintain a list in case you do not have another tool to manage `packs.yaml`
 
